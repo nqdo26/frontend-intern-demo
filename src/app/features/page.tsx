@@ -8,18 +8,24 @@ import Header from "@/components/header";
 export default function FeaturesPage() {
   const router = useRouter();
   const directionRef = React.useRef(1);
+  const [isNavigating, setIsNavigating] = React.useState(false);
   const handleWheel = useCallback(
     (e: React.WheelEvent) => {
+      if (isNavigating) return;
       if (e.deltaY > 0) {
         directionRef.current = 1;
+        setIsNavigating(true);
         router.push("/about");
+        setTimeout(() => setIsNavigating(false), 300);
       }
       if (e.deltaY < 0) {
         directionRef.current = -1;
+        setIsNavigating(true);
         router.push("/");
+        setTimeout(() => setIsNavigating(false), 300);
       }
     },
-    [router]
+    [router, isNavigating]
   );
 
   const variants = {

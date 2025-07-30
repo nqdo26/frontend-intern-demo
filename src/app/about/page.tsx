@@ -1,18 +1,31 @@
 "use client";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { useCallback } from "react";
+import { useCallback, useRef, useState } from "react";
 import Header from "@/components/header";
 import ExpandableColumns from "@/components/expandableColumns";
 
 export default function AboutPage() {
   const router = useRouter();
+  const directionRef = useRef(1);
+  const [isNavigating, setIsNavigating] = useState(false);
   const handleWheel = useCallback(
     (e: React.WheelEvent) => {
-      if (e.deltaY > 0) router.push("/contact");
-      if (e.deltaY < 0) router.push("/features");
+      if (isNavigating) return;
+      if (e.deltaY > 0) {
+        directionRef.current = 1;
+        setIsNavigating(true);
+        router.push("/contact");
+        setTimeout(() => setIsNavigating(false), 300);
+      }
+      if (e.deltaY < 0) {
+        directionRef.current = -1;
+        setIsNavigating(true);
+        router.push("/features");
+        setTimeout(() => setIsNavigating(false), 300);
+      }
     },
-    [router]
+    [router, isNavigating]
   );
 
   const columnsData = [
