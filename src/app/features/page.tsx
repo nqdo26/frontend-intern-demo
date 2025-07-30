@@ -16,13 +16,13 @@ export default function FeaturesPage() {
         directionRef.current = 1;
         setIsNavigating(true);
         router.push("/about");
-        setTimeout(() => setIsNavigating(false), 300);
+        setTimeout(() => setIsNavigating(false), 500);
       }
       if (e.deltaY < 0) {
         directionRef.current = -1;
         setIsNavigating(true);
         router.push("/");
-        setTimeout(() => setIsNavigating(false), 300);
+        setTimeout(() => setIsNavigating(false), 500);
       }
     },
     [router, isNavigating]

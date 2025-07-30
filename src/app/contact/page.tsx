@@ -16,7 +16,7 @@ export default function ContactPage() {
         directionRef.current = -1;
         setIsNavigating(true);
         router.push("/about");
-        setTimeout(() => setIsNavigating(false), 300);
+        setTimeout(() => setIsNavigating(false), 500);
       }
     },
     [router, isNavigating]
