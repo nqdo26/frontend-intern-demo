@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import {
   Sheet,
   SheetTrigger,
@@ -19,9 +20,9 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white">
       <div className="max-w-8xl sm:mx-10  px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
         {/* Logo */}
-        <a href="/" className="text-2xl font-bold text-gray-900">
+        <Link href="/" className="text-2xl font-bold text-gray-900">
           Maxius
-        </a>
+        </Link>
 
         {/* Mobile menu button */}
         <div className="flex items-center">

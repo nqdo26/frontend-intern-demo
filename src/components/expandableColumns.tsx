@@ -16,11 +16,6 @@ interface ExpandableColumnsProps {
 export default function ExpandableColumns({ columns }: ExpandableColumnsProps) {
   const [hovered, setHovered] = useState<number | null>(null);
 
-  // 🔹 Xử lý click trên mobile
-  const handleClick = (index: number) => {
-    setHovered((prev) => (prev === index ? null : index));
-  };
-
   return (
     <section className="flex flex-col lg:flex-row w-screen h-screen mt-16 lg:mt-0">
       {columns.map((col, index) => {

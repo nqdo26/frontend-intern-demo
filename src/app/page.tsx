@@ -16,7 +16,7 @@ export default function HomePage() {
         directionRef.current = 1;
         setIsNavigating(true);
         router.push("/features");
-        setTimeout(() => setIsNavigating(false), 500);
+        setTimeout(() => setIsNavigating(false), 300);
       }
     },
     [router, isNavigating]
